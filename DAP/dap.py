@@ -9,12 +9,10 @@ from skimage import io as skio
 from keras.models import Model
 from keras import layers
 
-# 存储训练用的图片数据
-train_img_dic = {}
-train_attribute_array = []
+from helper_function import img_reader, attribute_reader
 
 # 用来保存85个二分类支持向量机
-svm_85 = []
+svm_85 = [] 
 
 ################################################################################
 
@@ -24,15 +22,10 @@ svm_85 = []
 # 标签：(num_examples, binary_feature)
 
 # 训练用图片
-
-train_img_array = skio.imread(r'F:\datasets\AWA\JPEGImages\antelope\antelope_10001.jpg')
+train_img = img_reader(dataset_name='AWA', data_type='train')
 # 训练图片对应的属性向量
-attribute_matrix = io.open(r'F:\datasets\AWA\predicate-matrix-binary.txt', 'r')
-attirbute_array = np.array(attribute_matrix.readline().split(' '), dtype=int)
+train_attributes = attribute_reader('train')
 
-# 训练数据
-train_X = np.reshape(train_img_array, (1, -1)) # 1D vector
-train_Y = np.reshape(attirbute_array, (85,))
 
 ################################################################################
 
