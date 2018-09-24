@@ -63,12 +63,12 @@ def img_reader(dataset_name, data_type):
     path = 'F:\\datasets' + dataset_name
 
     # 得到图片类别的列表
-    cls_list = os.listdir(path + 'JPEGImages')
+    all_cls_list = os.listdir(path + 'JPEGImages')
 
     img_dic = {}
     cls_list = get_cls(data_type)
 
-    for batch_name in cls_list:
+    for batch_name in all_cls_list:
         if batch_name in cls_list:
             batch_img = batch_img_reader(batch_name)
             img_dic[batch_name] = batch_img
