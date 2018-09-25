@@ -75,7 +75,7 @@ def img_reader(dataset_name, data_type):
         else:
             continue
 
-    return img_dic
+    return img_dic, cls_list
 
 # 读取类别对应的属性向量
 def attribute_reader(data_type):
@@ -104,3 +104,47 @@ def attribute_reader(data_type):
     attribute_matrix.close()
 
     return attribute_list
+
+
+# 训练85个对应属性的支持向量机
+def svm_train(train_img, train_attr, cls_list):
+
+    svm_85 = []
+
+    for attr in range(85):
+        clf = svm.SVC()
+        for batch_name, index in cls_list, len(train_attr):
+            current_batch = train_img[batch_name]
+            attr = train_attr[index][attr]
+
+            # 拟合数据
+            clf.fit(current_batch, attr)
+    
+        svm_85.append(clf)
+    
+    return svm_85
+
+
+# 得到一个新的类别来测试
+def random_test_pair(test_img, test_attr):
+    # 取那个类别的图片
+    num_cls = len(test_img.keys())
+    cls_index = np.random.randint(0, num_cls)
+
+    # 取那张图片
+    num_img = len(len(test_img[cls_index]))
+    img_index = np.random.randint(0, num_img)
+
+    test_img = test_img[test_img[cls_index][img_index]]
+    attr_vector = test_attr[cls_index]
+
+    return test_img, attr_vector
+
+# 得到图片的预测属性向量
+def attr_predict(test_img, svm_list):
+    attr = []
+    for svm_id in len(svm_list):
+        attr_temp = svm_list[svm_id].predict(test_img)
+        attr.append(attr_temp)
+
+    return attr
