@@ -149,25 +149,26 @@ def svm_train(train_img, train_attr):
         # 对图片类别进行循环，并取得对应的属性
 
         # 图片类别指示器
-        batch_count = 0
+        batch_index = 0
         for batch_name in train_cls_list:
-            print("当前训练数据为：" + str(batch_name) + "," + "第 " + str(batch_count) + " 个属性" )
+            print("当前训练数据为：" + str(batch_name) + "," + "第 " + str(attr_index) + " 个属性" )
             # 当前类别的图片
             current_batch = train_img[batch_name]
+            print(str(current_batch.shape))
             # 对应的属性
-            attr = train_attr[batch_count][attr_index]
+            attr = train_attr[batch_index][attr_index]
             # print("current_batch shape: " + str(current_batch.shape))
 
             # 拟合数据
             # 将当前属性值转为向量
             if attr == 0:
-                attr_list = np.ravel(np.zeros((current_batch.shape[0],1))).tolist()
+                attr_list = np.ravel(np.zeros((current_batch.shape[0],1), dtype=int))
             else:
-                attr_list = np.ravel(np.ones((current_batch.shape[0],1))).tolist()
-            print(attr_list)
+                attr_list = np.ravel(np.ones((current_batch.shape[0],1), dtype=int))
+            print(str(attr_list.shape))
 
             clf.fit(current_batch, attr_list)
-            batch_count += 1
+            batch_index += 1
     
         svm_85.append(clf)
     
