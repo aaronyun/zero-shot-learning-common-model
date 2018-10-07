@@ -94,15 +94,13 @@ def img_reader(dataset_name, set_type):
         print(str(batch_count) + ":" + str(batch_name) + "类图片读取完成\n")
         batch_count += 1
 
-    print("\a")
     print(str(set_type) + " 数据划分读取完成\n")
 
     return img_dic
 
 # 读取类别对应的属性向量
 def attribute_reader(data_type):
-
-    print("开始读取 " + str(data_type) + " 集属性\n")
+    print("读取 " + str(data_type) + " 集属性")
 
     # 全部属性向量
     all_attr_list = []
@@ -138,7 +136,9 @@ def attribute_reader(data_type):
 #################################数据训练函数####################################
 
 # 训练85个对应属性的支持向量机
-def svm_train(train_img, train_attr):
+def svm_85_train(train_img, train_attr):
+    # 用于二分类支持向量机的训练数据必须有两个类别
+    # 所以训练数据只能把多个图片类别的数据整个成一次的训练数据
 
     svm_85 = []
     train_cls_list = train_img.keys()
@@ -146,30 +146,31 @@ def svm_train(train_img, train_attr):
     # 要训练85个SVM
     for attr_index in range(85):
         clf = svm.SVC()
-        # 对图片类别进行循环，并取得对应的属性
 
-        # 图片类别指示器
+        # 将对应数据划分里的所有图片组成一个ndarray (num_all_examples, 224*224*5)
         batch_index = 0
         for batch_name in train_cls_list:
-            print("当前训练数据为：" + str(batch_name) + "," + "第 " + str(attr_index) + " 个属性" )
-            # 当前类别的图片
-            current_batch = train_img[batch_name]
-            print(str(current_batch.shape))
-            # 对应的属性
-            attr = train_attr[batch_index][attr_index]
-            # print("current_batch shape: " + str(current_batch.shape))
-
-            # 拟合数据
-            # 将当前属性值转为向量
+            attr = train_attr[batch_index][attr_index]  # 获取的是单一值
+            # 先将每个类别当前的属性扩展成(num_examples,)的形状
             if attr == 0:
-                attr_list = np.ravel(np.zeros((current_batch.shape[0],1), dtype=int))
+                attr_temp = np.ravel(np.zeros((train_img[batch_name].shape[0],1), dtype=int))
             else:
-                attr_list = np.ravel(np.ones((current_batch.shape[0],1), dtype=int))
-            print(str(attr_list.shape))
+                attr_temp = np.ravel(np.ones((train_img[batch_name].shape[0],1), dtype=int))
 
-            clf.fit(current_batch, attr_list)
+            # 如果当前是第一次取图片
+            # 就初始化img_for_train和attr_for_train
+            if batch_index == 0:
+                img_for_train = train_img[batch_name]
+                attr_for_train = attr_temp
+            else:
+            # 如果不是第一次取图片
+            # 就把之前取到的图片和属性堆叠起来
+                img_for_train = np.vstack((img_for_train, train_img[batch_name]))
+                attr_for_train = np.concatenate((attr_for_train, attr_temp), axis=None)
+
             batch_index += 1
-    
+
+        clf.fit(img_for_train, attr_for_train)
         svm_85.append(clf)
     
     return svm_85

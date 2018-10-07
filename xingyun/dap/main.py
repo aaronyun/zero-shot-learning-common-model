@@ -1,29 +1,31 @@
 # -*- coding: UTF-8 -*-
 
-from sklearn import svm, naive_bayes
-import numpy as np
-from skimage import io as skio
-
-from helper_function import img_reader, attribute_reader, svm_train
+from helper_function import img_reader, attribute_reader, svm_85_train
 from helper_function import bayes_train, get_cls
 from model import attr_predict, cls_predict
 
 ################################################################################
 
-print("____读取数据____\n")
+print("====================")
+print("开始读取数据")
+print("====================\n")
 
-# 训练数据，字典
-# train_img = img_reader(dataset_name='AWA', set_type='train')
-# train_attr = attribute_reader('train')
-# 验证数据，字典
-valid_img = img_reader(dataset_name='AWA', set_type='valid')
-valid_attr = attribute_reader('valid')
-# 测试数据，字典
+# 训练数据
+train_img = img_reader(dataset_name='AWA', set_type='train')
+train_attr = attribute_reader('train')
+
+# 验证数据
+# valid_img = img_reader(dataset_name='AWA', set_type='valid')
+# valid_attr = attribute_reader('valid')
+
+# 测试数据
 # test_img = img_reader(dataset_name='AWA', set_type='test')
-# # test_cls = test_img.keys()
+# test_cls = test_img.keys()
 # test_attr = attribute_reader('test')
 
-print("____数据读取完成____")
+print("====================")
+print("数据读取完成")
+print("====================\n")
 
 ################################################################################
 
@@ -33,7 +35,7 @@ print("____数据读取完成____")
 print("____开始训练支持向量机____")
 
 # 对应85个属性的支持向量机
-svm_85 = svm_train(valid_img, valid_attr)
+svm_85 = svm_85_train(train_img, train_attr)
 
 print("____支持向量机训练完成____")
 
@@ -68,13 +70,31 @@ print("____支持向量机训练完成____")
 # cls_name = cls_predict(attribute, bayes_clf)
 # print("模型预测类别："+ str(cls_name))
 
-
+# killer+whale
+# beaver
+# dalmatian
+# horse
+# german+shepherd
 # blue+whale
+# siamese+cat
+# skunk
 # mole
-# ox
-# sheep
-# wolf
-# otter
+# tiger
 # moose
-# deer
+# spider+monkey
+# elephant
+# gorilla
+# ox
+# fox
+# sheep
+# hamster
+# squirrel
+# rhinoceros
+# rabbit
+# bat
+# giraffe
+# wolf
+# chihuahua
+# weasel
+# otter
 # buffalo
