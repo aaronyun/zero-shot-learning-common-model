@@ -15,13 +15,13 @@ train_img = img_reader(dataset_name='AWA', set_type='train')
 train_attr = attribute_reader('train')
 
 # 验证数据
-# valid_img = img_reader(dataset_name='AWA', set_type='valid')
-# valid_attr = attribute_reader('valid')
+valid_img = img_reader(dataset_name='AWA', set_type='valid')
+valid_attr = attribute_reader('valid')
 
 # 测试数据
-# test_img = img_reader(dataset_name='AWA', set_type='test')
-# test_cls = test_img.keys()
-# test_attr = attribute_reader('test')
+test_img = img_reader(dataset_name='AWA', set_type='test')
+test_cls = test_img.keys()
+test_attr = attribute_reader('test')
 
 print("====================")
 print("数据读取完成")
@@ -50,11 +50,11 @@ print("____支持向量机训练完成____")
 # 最后用贝叶斯定理来实现对图像类别的预测
 # 实际上是将属性向量作为训练数据，而类别作为标签来训练一个贝叶斯分类器
 
-# print("____开始训练贝叶斯分类器____")
+print("____开始训练贝叶斯分类器____")
 
-# bayes_clf = bayes_train(test_img, test_attr)
+bayes_clf = bayes_train(test_img, test_attr)
 
-# print("____贝叶斯分类器训练完成____")
+print("____贝叶斯分类器训练完成____")
 
 # 即先用支持向量机得到预测的属性向量，然后再用训练好的贝叶斯分类器得到类
 
@@ -69,32 +69,3 @@ print("____支持向量机训练完成____")
 # attribute = attr_predict(predict_img, svm_85)
 # cls_name = cls_predict(attribute, bayes_clf)
 # print("模型预测类别："+ str(cls_name))
-
-# killer+whale
-# beaver
-# dalmatian
-# horse
-# german+shepherd
-# blue+whale
-# siamese+cat
-# skunk
-# mole
-# tiger
-# moose
-# spider+monkey
-# elephant
-# gorilla
-# ox
-# fox
-# sheep
-# hamster
-# squirrel
-# rhinoceros
-# rabbit
-# bat
-# giraffe
-# wolf
-# chihuahua
-# weasel
-# otter
-# buffalo
