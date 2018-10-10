@@ -1,13 +1,14 @@
 # -*- coding: UTF-8 -*-
 
+import os
+
 import numpy as np
 from matplotlib import image
-import os
 import tensorflow as tf
+from skimage import io as skio
 
-from vggNet import vgg19
-
-def single_im_read(im_path):
+# 读取一张图片
+def single_img_read(upper_path, img_name):
     """
     Read an image and store in ndarray.
 
@@ -20,33 +21,118 @@ def single_im_read(im_path):
     im_array--ndarray, of shape (m, n, 3) for RGB image
     """
 
-    im_array = image.imread(im_path)
+    # 当前图片的路径
+    img_path = upper_path + '/' + img_name
+
+    img = image.imread(img_path)
 
     return im_array
 
-def image_holder(cls_path):
+# 获取对应数据划分里图片类别的名字
+def get_cls(data_type):
+    cls_list = []
+    if data_type == 'train':
+        data_path = r'/home/xingyun/datasets/AWA/trainclasses.txt'
+    elif data_type == 'valid':
+        data_path = r'/home/xingyun/datasets/AWA/validclasses.txt'
+    elif data_type == 'test':
+        data_path = r'/home/xingyun/datasets/AWA/testclasses.txt'
+    elif data_type == 'all':
+        data_path = r'/home/xingyun/datasets/AWA/classes.txt'
+    else:
+        print("没有叫做 " + str(data_type) + " 的数据划分！！！\n")
+        return
+
+    cls_file = io.open(data_path, 'r')
+
+    cls_name = ' '
+    while cls_name != '':
+        # 读取类别的名称并去掉换行符
+        cls_name = cls_file.readline().rstrip('\n')
+        # 确保没有加入无效的名称
+        if len(cls_name) != 0:
+            cls_list.append(cls_name)
+
+    cls_file.close()
+
+    return cls_list
+
+# 根据给出的图片类别名称读取这个类别的图片
+def cls_img_reader(cls_path, cls_name):
+    """Read a class of images. e.g. antelope
+
+    Args:
+        cls_name: which class of images you want to read.
+
+    Returns:
+        cls_img_array: a class of image in numpy array, of shape (num of images, height, width, channels)
     """
-    Create python dictionary to store different type of images.
 
-    Arguments
-    ---
-    cls_path--path of classes
-
-    Returns
-    ---
-    im_dic--python dictionary containing classes and corresponding images 
-    """
-
-    # hodlder
-    im_dic = {}
-
-    # get the name of classes
-    cls_list = os.listdir(cls_path)
-
-    for single_cls in cls_list:
-        im_dic[single_cls] = []
+    # 图片名字的列表
+    img_name_list = os.listdir(cls_path)
     
-    return im_dic
+    img_count = 1 # 图片计数器
+    for img_name in img_name_list:
+        # 读取当前图片
+        img = single_img_read(cls_path, img_name)
+
+        # 需要考虑读的是不是当前类别的第一张图片
+        if img_count == 1:
+            cls_img = img
+        else:
+            cls_img = np.vstack((cls_img, img))
+
+        img_count += 1
+
+    return cls_img
+
+# 读取一个数据划分的图片
+def split_img_reader(dataset_path, split_name):
+    """Read a data split of images into dictionary.
+
+    Args:
+        dataset_path: the path where your dataset stored
+        split_name: corresponding split to read
+
+    Returns:
+        img_split_dic: python dictionary containing a split of images
+    """
+
+    img_split_dic = {} # 存放图片的字典
+
+    cls_name_list = get_cls(split_name) # 当前数据划分包含的类别列表
+
+    for cls_name in cls_name_list:
+        cls_path = dataset_path + '/' + cls_name
+        cls_img = cls_img_reader(cls_path, cls_name)
+        img_split_dic[cls_name] = cls_img
+
+    return img_split_dic
+
+
+# def image_holder(cls_path):
+#     """
+#     Create python dictionary to store different type of images.
+
+#     Arguments
+#     ---
+#     cls_path--path of classes
+
+#     Returns
+#     ---
+#     im_dic--python dictionary containing classes and corresponding images 
+#     """
+
+#     # hodlder
+#     im_dic = {}
+
+#     # get the name of classes
+#     cls_list = os.listdir(cls_path)
+
+#     for single_cls in cls_list:
+#         im_dic[single_cls] = []
+    
+#     return im_dic
 
 # def im_set_read(image_holder, image_path, set_name):
 #     """

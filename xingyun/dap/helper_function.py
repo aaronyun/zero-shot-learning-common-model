@@ -5,10 +5,53 @@ import os
 
 from skimage import io as skio
 from skimage import transform
+
 import numpy as np
+import tensorflow as tf
 from sklearn import svm, naive_bayes
 
+from extractor.vggNet import vgg19
+
+
 #################################数据处理函数####################################
+
+# # 进行特征提取并保存
+# def vgg_extract(img_set_dic, keep_prob=1):
+#     """Extract the feature of images with vgg19.
+
+#     Args:
+#         img_set_dic: images need to be process
+#         keep_prob: parameter in vggNet
+
+#     Returns:
+#         vgg_img_dic: python dictionary stored precessed images
+#     """
+#     # 打开文件
+#     feature_file = io.open('img_features.txt', 'w')
+
+#     set_list = img_set_dic.keys() # 得到所有的类别以进行循环处理
+#     batch_count = 0
+#     for set_name in set_list:
+#         batch_img = img_set_dic[set_name]
+
+#         # 创建session运行vgg
+#         with tf.session() as sess:
+#             tf.run(tf.global_variables_initializer())
+            
+#             # 进行特征提取
+#             # 注意：features是一个tensor，形状是(num of examples, 1, 1, 1000)
+#             predictions, softmax, fc3, params = vgg19(batch_img, keep_prob)
+
+#             # 将得到的tensor转化为ndarray
+#             if batch_count == 0:
+#                 batch_features = fc3.eval().squeeze()
+#             else:
+#                 batch_features.vstack(fc3.eval().squeeze())
+
+#         # 多次调用np.load()函数时会重写文件内容
+#         np.save('features.npy', batch_features)
+
+#     return
 
 # 获取对应数据划分里有哪些图片类别
 def get_cls(data_type):
@@ -39,64 +82,64 @@ def get_cls(data_type):
 
     return cls_list
 
-# 根据给出的图片类别名称读取这个类别的图片
-def batch_img_reader(batch_name):
-    """Read a batch of images.
+# # 根据给出的图片类别名称读取这个类别的图片
+# def batch_img_reader(batch_name):
+#     """Read a batch of images.
 
-    A batch means the one of the image classes in your dataset.
+#     A batch means the one of the image classes in your dataset.
 
-    Args:
-        batch_name: which image class you want to read.
+#     Args:
+#         batch_name: which image class you want to read.
 
-    Returns:
-        batch_img_array: a batch of image in numpy array, of shape (num_img, 224*224*3)
-    """
+#     Returns:
+#         batch_img_array: a batch of image in numpy array, of shape (num_img, 224*224*3)
+#     """
 
     
-    # path是当前类别的路径，后面还要加上图片名字才能读取
-    path = r'/home/xingyun/datasets/AWA/JPEGImages/' + str(batch_name)
-    # 图片名字的列表
-    img_list = os.listdir(path)
+#     # path是当前类别的路径，后面还要加上图片名字才能读取
+#     path = r'/home/xingyun/datasets/AWA/JPEGImages/' + str(batch_name)
+#     # 图片名字的列表
+#     img_list = os.listdir(path)
     
-    img_count = 1
-    for img_name in img_list:
-        # 图片的路径
-        img_path = path + '/' + str(img_name)
-        img = skio.imread(img_path)
+#     img_count = 1
+#     for img_name in img_list:
+#         # 图片的路径
+#         img_path = path + '/' + str(img_name)
+#         img = skio.imread(img_path)
 
-        # 裁剪图像
-        img_resized = transform.resize(img, (224, 224))
-        # 把图像转换成(1, 224*224*3)
-        img_flatten = np.reshape(img_resized, (1, -1))
+#         # 裁剪图像
+#         img_resized = transform.resize(img, (224, 224))
+#         # 把图像转换成(1, 224*224*3)
+#         img_flatten = np.reshape(img_resized, (1, -1))
 
-        if img_count == 1:
-            batch_img_array = img_flatten
-        else:
-            batch_img_array = np.vstack((batch_img_array, img_flatten))
+#         if img_count == 1:
+#             batch_img_array = img_flatten
+#         else:
+#             batch_img_array = np.vstack((batch_img_array, img_flatten))
 
-        img_count += 1
-    # print((batch_img_array.shape))
-    return batch_img_array
+#         img_count += 1
+#     # print((batch_img_array.shape))
+#     return batch_img_array
 
-# 读取训练或测试集的图片
-def img_reader(dataset_name, set_type):
-    print("读取 " + str(set_type) + " 数据划分\n")
+# # 读取训练或测试集的图片
+# def img_reader(dataset_name, set_type):
+#     print("读取 " + str(set_type) + " 数据划分\n")
 
-    img_dic = {}
-    # 要获取的数据划分包含的类别
-    cls_list = get_cls(set_type)
+#     img_dic = {}
+#     # 要获取的数据划分包含的类别
+#     cls_list = get_cls(set_type)
 
-    batch_count = 1
-    for batch_name in cls_list:
-        print("当前读取图片类别：" + str(batch_name))
-        batch_img = batch_img_reader(batch_name)
-        img_dic[batch_name] = batch_img
-        print(str(batch_count) + ":" + str(batch_name) + "类图片读取完成\n")
-        batch_count += 1
+#     batch_count = 1
+#     for batch_name in cls_list:
+#         print("当前读取图片类别：" + str(batch_name))
+#         batch_img = batch_img_reader(batch_name)
+#         img_dic[batch_name] = batch_img
+#         print(str(batch_count) + ":" + str(batch_name) + "类图片读取完成\n")
+#         batch_count += 1
 
-    print(str(set_type) + " 数据划分读取完成\n")
+#     print(str(set_type) + " 数据划分读取完成\n")
 
-    return img_dic
+#     return img_dic
 
 # 读取类别对应的属性向量
 def attribute_reader(data_type):
@@ -135,15 +178,14 @@ def attribute_reader(data_type):
 
 #################################数据训练函数####################################
 
-# 训练85个对应属性的支持向量机
 def svm_85_train(train_img, train_attr):
-    # 用于二分类支持向量机的训练数据必须有两个类别
+    # 由于二分类支持向量机的训练数据必须有两个类别
     # 所以训练数据只能把多个图片类别的数据整个成一次的训练数据
 
     svm_85 = []
     train_cls_list = train_img.keys()
 
-    # 要训练85个SVM
+    # 85个属性对应85个SVM
     for attr_index in range(85):
         clf = svm.SVC()
 

@@ -28,10 +28,11 @@ def loadstr(filename,converter=str):
 def bzUnpickle(filename):
     return pickle.load(bz2.BZ2File(filename))
 
-# adapt these paths and filenames to match local installation
 
+# 特征和标签文件的基础路径
 feature_pattern = '/agbs/share/datasets/Animals_with_Attributes/code/feat/%s-%s.pic.bz2'
 labels_pattern =  '/agbs/share/datasets/Animals_with_Attributes/code/feat/%s-labels.pic.bz2'
+
 
 all_features = ['cq','lss','phog','sift','surf','rgsift']
 

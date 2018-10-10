@@ -1,47 +1,4 @@
-"""
-VGG-19 Implementation in tensorflow.
-
-PART I: 
-	operation: convolution
-	times: 2
-	kernel: (1,3,3,1)
-	stride: (1,1,1,1)
-	output channels: 64
-
-PART II:
-	operation: convolution
-	times: 2
-	kernel: (1,3,3,1)
-	stride: (1,1,1,1)
-	output channels : 128
-	
-PART III:
-	operation: convolution
-	times: 4
-	kernel: (1,3,3,1)
-	stride: (1,1,1,1)
-	output channels : 256
-
-PART IV:
-	operation: convolution
-	times: 4
-	kernel: (1,3,3,1)
-	stride: (1,1,1,1)
-	output channels : 512
-
-PART V:
-	operation: convolution
-	times: 4
-	kernel: (1,3,3,1)
-	stride: (1,1,1,1)
-	output channels : 512
-
-FC:
-	fc1: 4096 neurons
-	fc2: 4096 neurons
-	fc3: 1000 neurons
-	
-"""
+# -*- coding: UTF-8 -*-
 
 import tensorflow as tf
 
@@ -139,20 +96,17 @@ def maxpool_op(inputs, kernel_h=2, kernel_w=2, stride_h=2, stride_w=2):
 #--------------------VGG-19 structure--------------------#
 
 def vgg19(inputs, keep_prob):
-    """
-    The structure of VGG-19.
+    """VGG19 network.
 
-    Arguments
-    ---
-    inputs--inputs of vggnet
-    keep_prob--ratio of eliminated neurons
+    Args:
+        inputs: inputs of shape (num of examples, height, width, channels)
+        keep_prob: ratio of eliminated neurons
 
-    Returns
-    ---
-    predictions--the output of vggnet
-    softmax--output in softmax formation
-    fc3--the last full-connected layer's output
-    params--list of params used in this network
+    Returns:
+        predictions: the output of vggnet
+        softmax: output in softmax formation
+        fc3: the last full-connected layer's output
+        params: list of params used in this network
     """
 
     # number of images
@@ -245,3 +199,8 @@ def vgg19(inputs, keep_prob):
     predictions = tf.argmax(softmax, axis=1)
 
     return predictions, softmax, fc3, params
+
+#--------------------VGG-16 structure--------------------#
+
+def vgg16():
+    return
