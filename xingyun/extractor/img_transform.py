@@ -49,21 +49,21 @@ def resize_cls_img(cls_of_img):
 
     return resized_cls_img
 
-def resized_split_img(split_of_img):
+def resize_split_image(split_image):
     """Resize all the images in a data split.
 
     Args:
-        split_of_img: python dictionary containing all the classes of images
+        split_image: python dictionary containing all the classes of images
 
     Returns:
-        resized_split_img: python dictionary containing resized images
+        resized_split_image: python dictionary containing resized images
     """
 
-    resized_split_img = {}
-    cls_name_list = split_of_img.keys()
+    resized_split_image = {}
+    cls_name_list = split_image.keys()
 
     for cls_name in cls_name_list:
-        resized_cls_img = resize_cls_img(split_of_img[cls_name])
-        resized_split_img[cls_name] = resized_cls_img
+        resized_cls_img = resize_cls_img(split_image[cls_name])
+        resized_split_image[cls_name] = resized_cls_img
 
-    return resized_split_img
+    return resized_split_image

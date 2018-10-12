@@ -4,51 +4,44 @@ import io
 import tensorflow as tf
 import numpy as np
 
-from im_read import image_holder
-from im_preprocess import load_image_set
-from vggNet import vgg19
+from extractor.img_and_attr_reader import *
+from extractor.vggNet import vgg19
 
-
-# 已经读取完了图片，然后进行特征提取
-# 输入：数据划分的图片的字典
-# 输出：包含特征的文本文件
-def feature_extractor(img_set_dic):
+def feature_extractor(dataset_path, split_name):
     """Extract the feature of images with vgg19.
     
-    Write the features extracted in text file.
+    Write the features extracted into a text file.
 
     Args:
-        img_set_dic: images need to be extracted
+        split_name: which split of images need to be extracted
     """
+    feature_file_name = split_name + '_features.txt'
+    feature_file = io.open(feature_file_name, 'a')
 
-    feature_file = io.open('features_extracted.txt', 'w+')
+    split_image = read_split_img(dataset_path, split_name)
+    resized_split_image = resized_split_image(split_image)
 
-    # 当前数据划分包含的所有图片类别
-    img_cls_name = img_set_dic.keys()
+    all_class_name = resized_split_image.keys()
+    with tf.Session() as sess:
+        sess.run(tf.global_variables_initializer())
+        for class_name in all_class_name:
 
-    # 对每一类图片进行裁剪然后提取特征
-    for cls_name in img_cls_name:
-        tf.reset_default_graph()
+            tf.reset_default_graph()
 
-        print("开始提取" + str(cls_name) + "类的图片的特征")
-        # 首先找到当前图片类别的路径
-        path_temp = target_path + '/' + str(key)
-        # 对当前类别的图片进行裁剪并保存到临时的列表中
-        croped_img_set = load_image_set(path_temp)
-        # 将当前类别的图片转为tensor然后输入到vgg19得到结果
-        tensor_image_set = tf.convert_to_tensor(croped_img_set)
-        predictions, softmax, vgg_image_set, parameters = vgg19(tensor_image_set, keep_prob=1)
+            # print("开始提取" + str(class_name) + "类图片的特征")
+            class_image = resized_split_image[class_name]
+            ignore_1, ignore_2, class_image_features, ignore_3 = vgg19(class_image, keep_prob=1)
+            # print(str(class_name)+ "类的图片特征提取完成")
 
-        print("将" + str(key) + "类的图片结果写入文件中。。。")
+            # print("将" + str(class_name) + "类的图片特征写入文件中")
+            feature_file.write("%s\n" % class_name)
+            feature_file.write(str(class_image_features))
+            # print(str(key) + "类的图片特征写入完成")
 
-        # 将得到的图片结果写入到文本文件中
-        feature_file.write("%s: \n" % key)
-        feature_file.write(str(vgg_image_set))
-        print(str(key) + "类的图片结果写入完成。")
+        print("恭喜!全部写入完成！！！")
+        feature_file.close()
 
-    print("恭喜!全部写入完成！！！")
-    # 关闭文本文件
-    feature_file.close()
+    return
 
 
     # # 打开文件
