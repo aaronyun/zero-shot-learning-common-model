@@ -11,8 +11,6 @@ from sklearn import svm, naive_bayes
 #################################数据训练函数####################################
 
 def svm_85_train(train_img, train_attr):
-    # 由于二分类支持向量机的训练数据必须有两个类别
-    # 所以训练数据只能把多个图片类别的数据整个成一次的训练数据
 
     svm_85 = []
     train_cls_list = train_img.keys()
@@ -24,7 +22,7 @@ def svm_85_train(train_img, train_attr):
         # 将对应数据划分里的所有图片组成一个ndarray (num_all_examples, 224*224*5)
         batch_index = 0
         for batch_name in train_cls_list:
-            attr = train_attr[batch_index][attr_index]  # 获取的是单一值
+            attr = train_attr[batch_ijndex][attr_index]  # 获取的是单一值
             # 先将每个类别当前的属性扩展成(num_examples,)的形状
             if attr == 0:
                 attr_temp = np.ravel(np.zeros((train_img[batch_name].shape[0],1), dtype=int))

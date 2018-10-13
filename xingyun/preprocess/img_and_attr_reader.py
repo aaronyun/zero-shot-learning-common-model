@@ -83,7 +83,7 @@ def read_class_img(split_path, class_name):
     return a_class_img
 
 # 读取一个数据划分的图片
-def read_split_img(dataset_path, split_name):
+def read_a_split_img(dataset_path, split_name):
     """Read a data split of images into dictionary.
 
     Args:

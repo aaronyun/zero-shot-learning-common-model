@@ -49,7 +49,7 @@ def resize_cls_img(cls_of_img):
 
     return resized_cls_img
 
-def resize_split_image(split_image):
+def resize_a_split_img(split_image):
     """Resize all the images in a data split.
 
     Args:
