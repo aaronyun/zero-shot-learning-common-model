@@ -17,6 +17,3 @@
 - [DEVISE: Deep Visual Semantic Embedding](http://www.cs.toronto.edu/~ranzato/publications/frome_nips2013.pdf)
 - [ESZSL: Embarassingly Simple Zero Shot Learning](http://www.robots.ox.ac.uk/~tvg/publications/2015/romera-paredes15.pdf)
 - [SJE: Structured Joint Embedding](https://www.cv-foundation.org/openaccess/content_cvpr_2015/papers/Akata_Evaluation_of_Output_2015_CVPR_paper.pdf)
-
-
-changed
