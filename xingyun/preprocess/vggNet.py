@@ -11,7 +11,7 @@ def conv_op(inputs, num_layer, channels_out, kernel_h=3, kernel_w=3, stride_h=1,
     Arguments
     ---
     inputs--input of current layer, tensor of shape (number of examples, height, width , channels)
-    kernel_h--height of kernel in current convolution layer
+    kernel_h--height of  in current convolution layer
     kernel_w--width of kernel in current convolution layer
     channels_out--channels of output of current layer(number of channels)
     stride_h--stride's height
@@ -24,13 +24,13 @@ def conv_op(inputs, num_layer, channels_out, kernel_h=3, kernel_w=3, stride_h=1,
     """
 
     # get the channel number of input
-    channels_in = inputs.get_shape()[-1].value
+    channels_in = inputs.shape[-1]
 
     # create kernel
-    kernel = tf.get_variable(name="kernel"+num_layer, shape=[kernel_h, kernel_w, channels_in, channels_out], dtype=tf.float32, initializer=tf.contrib.layers.xavier_initializer_conv2d())
+    kernel = tf.get_variable(name='conv_kernel_'+num_layer, shape=[kernel_h, kernel_w, channels_in, channels_out], dtype=tf.float64, initializer=tf.contrib.layers.xavier_initializer_conv2d())
     # create biases
-    biases_init = tf.constant(0.0, dtype=tf.float32, shape=[channels_out])
-    biases = tf.Variable(biases_init, trainable=True, name='conv_bias'+num_layer)
+    biases_init = tf.constant(0.0, dtype=tf.float64, shape=[channels_out])
+    biases = tf.Variable(biases_init, trainable=True, name='conv_bias_'+num_layer)
 
     # convolution operation
     conv = tf.nn.conv2d(inputs, kernel, strides=(1,stride_h,stride_w,1), padding='SAME')
@@ -60,10 +60,10 @@ def fc_op(inputs, num_layer, channels_in, channels_out, params):
 
     # create kernel(weight)
     # the shape of kernel is (channels_in, channels_out), this is because tf.nn.relu_layer() computes x*w + b rather than w*x + b
-    kernel = tf.get_variable(name="kernel"+num_layer, shape=[channels_in, channels_out], dtype=tf.float32, initializer=tf.contrib.layers.xavier_initializer())
+    kernel = tf.get_variable(name='fc_kernel_'+num_layer, shape=[channels_in, channels_out], dtype=tf.float64, initializer=tf.contrib.layers.xavier_initializer())
 
     # create biases
-    biases = tf.get_variable(name='biases'+num_layer, shape=[channels_out], dtype=tf.float32, initializer=tf.constant_initializer())
+    biases = tf.get_variable(name='fc_biases_'+num_layer, shape=[channels_out], dtype=tf.float64, initializer=tf.constant_initializer())
 
     # full-connected operation
     activation = tf.nn.relu_layer(inputs, kernel, biases)

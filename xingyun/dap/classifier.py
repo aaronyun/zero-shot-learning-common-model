@@ -10,41 +10,33 @@ from sklearn import svm, naive_bayes
 
 #################################数据训练函数####################################
 
-def svm_85_train(train_img, train_attr):
+def train_single_svm(train_features, train_attr):
 
+    classifier = svm.SVC()
+    classifier.fit(train_features, train_attr)
+
+    return svm
+
+def train_85_svm(train_features, train_attr):
+    """Train 85 svm for each attribute.
+
+    Args:
+        train_features: features used to training, of shape (num of examples, 512)
+        train_attr: attributes used to training, of shape (num of examples, num of attributes)
+
+    Returns:
+        svm_85: all 85 support vector machine corresponding to 85 attributes
+    """
     svm_85 = []
-    train_cls_list = train_img.keys()
 
-    # 85个属性对应85个SVM
     for attr_index in range(85):
-        clf = svm.SVC()
+        features = train_features
+        attr = train_attr[][attr_index]
 
-        # 将对应数据划分里的所有图片组成一个ndarray (num_all_examples, 224*224*5)
-        batch_index = 0
-        for batch_name in train_cls_list:
-            attr = train_attr[batch_ijndex][attr_index]  # 获取的是单一值
-            # 先将每个类别当前的属性扩展成(num_examples,)的形状
-            if attr == 0:
-                attr_temp = np.ravel(np.zeros((train_img[batch_name].shape[0],1), dtype=int))
-            else:
-                attr_temp = np.ravel(np.ones((train_img[batch_name].shape[0],1), dtype=int))
+        print("当前训练第 " + str(attr_index) + " 个支持向量机")
+        train_single_svm(features, attr)
+        print("当前支持向量机训练完成")
 
-            # 如果当前是第一次取图片
-            # 就初始化img_for_train和attr_for_train
-            if batch_index == 0:
-                img_for_train = train_img[batch_name]
-                attr_for_train = attr_temp
-            else:
-            # 如果不是第一次取图片
-            # 就把之前取到的图片和属性堆叠起来
-                img_for_train = np.vstack((img_for_train, train_img[batch_name]))
-                attr_for_train = np.concatenate((attr_for_train, attr_temp), axis=None)
-
-            batch_index += 1
-
-        clf.fit(img_for_train, attr_for_train)
-        svm_85.append(clf)
-    
     return svm_85
 
 def bayes_train(test_img, test_attr):
