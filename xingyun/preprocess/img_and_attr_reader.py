@@ -67,7 +67,7 @@ def read_class_img(split_path, class_name):
     """
     print("--------------------")
     print("开始读取" + str(class_name) + "类的图片")
-    print("--------------------\n")
+    print("--------------------")
 
     class_path = split_path + '/' + class_name
     all_img_name = os.listdir(class_path)
@@ -87,7 +87,7 @@ def read_class_img(split_path, class_name):
 
     print("--------------------")
     print(str(class_name) + "类的图片读取完成")
-    print("--------------------")
+    print("--------------------\n")
 
     return a_class_img
 

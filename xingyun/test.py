@@ -6,6 +6,6 @@ from preprocess.feature_process import feature_extractor, feature_reader
 # print(split_attribute)
 
 # 特征提取函数测试
-feature_extractor(r'/data0/xingyun/AWA', 'train')
+feature_extractor(r'/data0/xingyun/AWA', 'valid')
 # features = feature_reader('valid')
 # print(str(features.shape))
