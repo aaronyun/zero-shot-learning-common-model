@@ -29,9 +29,9 @@ def feature_extractor(dataset_path, split_name):
         for class_name in all_class_name:
             print("正在提取" + str(class_name) + "类的特征")
 
-            class_img = a_split_img[class_name]
+            class_image = a_split_img[class_name]
             vgg = Vgg19() 
-            vgg.build(class_img)
+            vgg.build(class_image)
             fc_result = (vgg.fc8).eval()
             # print(str(class_name) + "类特征的形状: " + str(rc_result.shape))
 
@@ -40,10 +40,7 @@ def feature_extractor(dataset_path, split_name):
             else:
                 class_img_features = np.vstack((class_img_features, fc_result))
 
-<<<<<<< HEAD
-=======
             # print("class_img_features的形状: " + str(class_img_features.shape))
->>>>>>> 05c6961ef22f3e40913ca31d4d756a12608bbd38
             class_index += 1
 
             print(str(class_name) + "类的特征提取完成\n")
