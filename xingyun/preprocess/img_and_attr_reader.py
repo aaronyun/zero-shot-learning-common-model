@@ -8,7 +8,7 @@ from matplotlib import image
 import tensorflow as tf
 from skimage import io as skio
 
-from preprocess.utils import resize_img, get_class_name
+from utils import resize_img, get_class_name
 
 #################################图片读取#######################################
 

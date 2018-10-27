@@ -31,7 +31,7 @@ def train_85_svm(train_features, train_attr):
 
     for attr_index in range(85):
         features = train_features
-        attr = train_attr[][attr_index]
+        attr = train_attr[:][attr_index]
 
         print("当前训练第 " + str(attr_index) + " 个支持向量机")
         train_single_svm(features, attr)

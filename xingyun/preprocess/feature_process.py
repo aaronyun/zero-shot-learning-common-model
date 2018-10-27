@@ -3,9 +3,9 @@
 import tensorflow as tf
 import numpy as np
 
-from preprocess.utils import get_class_name, data_writer
-from preprocess.img_and_attr_reader import read_split_img
-from preprocess.vgg19 import Vgg19
+from utils import get_class_name, data_writer
+from img_and_attr_reader import read_split_img
+from vgg19 import Vgg19
 
 def feature_extractor(dataset_path, split_name):
     """Extract the feature of images with vgg19.
@@ -31,23 +31,23 @@ def feature_extractor(dataset_path, split_name):
         for class_name in all_class_name:
             print("正在提取" + str(class_name) + "类的特征")
 
-    #         class_image = a_split_img[class_name]
-    #         vgg = Vgg19() 
-    #         vgg.build(class_image)
-    #         fc_result = (vgg.fc8).eval()
-    #         # print(str(class_name) + "类特征的形状: " + str(rc_result.shape))
+            class_image = a_split_img[class_name]
+            vgg = Vgg19() 
+            vgg.build(class_image)
+            fc_result = (vgg.fc8).eval()
+            # print(str(class_name) + "类特征的形状: " + str(rc_result.shape))
 
-    #         if class_index == 1:
-    #             class_img_features = fc_result
-    #         else:
-    #             class_img_features = np.vstack((class_img_features, fc_result))
+            if class_index == 1:
+                class_img_features = fc_result
+            else:
+                class_img_features = np.vstack((class_img_features, fc_result))
 
-    #         # print("class_img_features的形状: " + str(class_img_features.shape))
-    #         class_index += 1
+            # print("class_img_features的形状: " + str(class_img_features.shape))
+            class_index += 1
 
             print(str(class_name) + "类的特征提取完成\n")
     
-    # data_writer(split_name, data_type='features', class_img_features)
+    data_writer(split_name, data_type='features', class_img_features)
 
     print("\n" + str(split_name) + "数据划分的特征提取完成")
     print("======================")
