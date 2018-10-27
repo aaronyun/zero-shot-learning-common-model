@@ -27,26 +27,27 @@ def feature_extractor(dataset_path, split_name):
 
         class_index = 1
         all_class_name = a_split_img.keys()
+        print(all_class_name)
         for class_name in all_class_name:
             print("正在提取" + str(class_name) + "类的特征")
 
-            class_image = a_split_img[class_name]
-            vgg = Vgg19() 
-            vgg.build(class_image)
-            fc_result = (vgg.fc8).eval()
-            # print(str(class_name) + "类特征的形状: " + str(rc_result.shape))
+    #         class_image = a_split_img[class_name]
+    #         vgg = Vgg19() 
+    #         vgg.build(class_image)
+    #         fc_result = (vgg.fc8).eval()
+    #         # print(str(class_name) + "类特征的形状: " + str(rc_result.shape))
 
-            if class_index == 1:
-                class_img_features = fc_result
-            else:
-                class_img_features = np.vstack((class_img_features, fc_result))
+    #         if class_index == 1:
+    #             class_img_features = fc_result
+    #         else:
+    #             class_img_features = np.vstack((class_img_features, fc_result))
 
-            # print("class_img_features的形状: " + str(class_img_features.shape))
-            class_index += 1
+    #         # print("class_img_features的形状: " + str(class_img_features.shape))
+    #         class_index += 1
 
             print(str(class_name) + "类的特征提取完成\n")
     
-    data_writer(split_name, data_type='features', class_img_features)
+    # data_writer(split_name, data_type='features', class_img_features)
 
     print("\n" + str(split_name) + "数据划分的特征提取完成")
     print("======================")

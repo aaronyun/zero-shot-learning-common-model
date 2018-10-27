@@ -8,7 +8,7 @@ from matplotlib import image
 import tensorflow as tf
 from skimage import io as skio
 
-from preprocess.utils import resize_img
+from preprocess.utils import resize_img, get_class_name
 
 #################################图片读取#######################################
 
@@ -165,7 +165,7 @@ def read_and_expand_split_attr(dataset_path, split_name):
     for class_name in split_class_name:
         attr_index = all_class_name.index(class_name)
         # print(class_name + ': ' + str(attr_index + 1))
-        correspond_attr = all_attrs[attr_index]
+        correspond_attr = all_attrs[attr_index] 
         # 对属性向量进行扩充
         expanded_attr = expand_attr(correspond_attr, class_name, all_img_path)
 
