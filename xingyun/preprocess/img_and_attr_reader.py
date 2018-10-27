@@ -8,37 +8,7 @@ from matplotlib import image
 import tensorflow as tf
 from skimage import io as skio
 
-from preprocess.img_transform import resize_single_img
-
-############################# HELPER FUNCTION ##################################
-
-def get_class_name(dataset_path, split_name):
-    all_class_name = []
-
-    if split_name == 'train':
-        split_file_path = dataset_path + '/' + split_name + 'classes.txt'
-    elif split_name == 'valid':
-        split_file_path = dataset_path + '/' + split_name + 'classes.txt'
-    elif split_name == 'test':
-        split_file_path = dataset_path + '/' + split_name + 'classes.txt'
-    elif split_name == 'all':
-        split_file_path = dataset_path + '/' + 'classes.txt'
-    else:
-        print("没有叫做 " + str(split_name) + " 的数据划分！！！\n")
-        return
-
-    split_file = io.open(split_file_path, 'r')
-
-    class_name = ' '
-    while class_name != '':
-        class_name = split_file.readline().rstrip('\n')
-        # 确保没有加入无效的名称
-        if len(class_name) != 0:
-            all_class_name.append(class_name)
-
-    split_file.close()
-
-    return all_class_name
+from preprocess.utils import resize_img
 
 #################################图片读取#######################################
 
@@ -56,7 +26,7 @@ def read_single_img(class_path, img_name):
     single_img_path = class_path + '/' + img_name
     img = image.imread(single_img_path)
     # 在读取每一张图片的同时进行裁剪
-    resized_img = resize_single_img(img)
+    resized_img = resize_img(img)
 
     return resized_img
 
