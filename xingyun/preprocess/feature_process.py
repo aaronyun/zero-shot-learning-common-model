@@ -3,9 +3,9 @@
 import tensorflow as tf
 import numpy as np
 
-from utils import get_class_name, data_writer
-from img_and_attr_reader import read_split_img
-from vgg19 import Vgg19
+from preprocess.utils import get_class_name, writer
+from preprocess.img_and_attr_reader import read_split_img
+from preprocess.vgg19 import Vgg19
 
 def feature_extractor(dataset_path, split_name):
     """Extract the feature of images with vgg19.
@@ -27,13 +27,12 @@ def feature_extractor(dataset_path, split_name):
 
         class_index = 1
         all_class_name = a_split_img.keys()
-        print(all_class_name)
         for class_name in all_class_name:
             print("正在提取" + str(class_name) + "类的特征")
 
-            class_image = a_split_img[class_name]
-            vgg = Vgg19() 
-            vgg.build(class_image)
+            class_img = a_split_img[class_name]
+            vgg = Vgg19()
+            vgg.build(class_img)
             fc_result = (vgg.fc8).eval()
             # print(str(class_name) + "类特征的形状: " + str(rc_result.shape))
 
@@ -47,23 +46,7 @@ def feature_extractor(dataset_path, split_name):
 
             print(str(class_name) + "类的特征提取完成\n")
     
-    data_writer(split_name, data_type='features', class_img_features)
+    writer(split_name, 'features', class_img_features)
 
     print("\n" + str(split_name) + "数据划分的特征提取完成")
     print("======================")
-
-    return
-
-def feature_reader(split_name):
-    """Read a split of features stored in corresponding file.
-
-    Args:
-        split_name: the split which you want to read correspongding features
-
-    Returns:
-        features: features with regard to the given split
-    """
-    feature_file_name = split_name + '_features.npy'
-    features = np.load(feature_file_name)
-
-    return features

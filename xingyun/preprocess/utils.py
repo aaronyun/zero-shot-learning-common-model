@@ -1,7 +1,10 @@
 # -*- coding: UTF-8 -*-
 import numpy as np
 import io
+import os
 from skimage import transform
+
+########################### functionality utilities ############################
 
 def get_class_name(dataset_path, split_name):
     """Fetch all the name of a split.
@@ -40,7 +43,9 @@ def get_class_name(dataset_path, split_name):
 
     return all_class_name
 
-def data_writer(split_name, data_type, data):
+############################ file process utilities ############################
+
+def writer(split_name, data_type, data):
     """Write data into .npy file.
 
     Args:
@@ -59,6 +64,44 @@ def data_writer(split_name, data_type, data):
     np.save(file_name, data)
 
     return
+
+def reader(split_name, data_type):
+    """Read a split of features or attributes stored in corresponding file.
+
+    Args:
+        split_name: the split which you want to read
+        data_type: string, 'features' or 'attributes'
+
+    Returns:
+        data: features or attributes with regard to the given split
+    """
+    if data_type == 'features':
+        file_name = split_name + '_features.npy'
+    elif data_type == 'attributes':
+        file_name = split_name + '_attributes.npy'
+    
+    data = np.load(file_name)
+
+    return data
+
+############################ data process utilities ############################
+
+def img_count(dataset_path, class_name):
+    """Get the number of images in a class.
+
+    Args:
+        dataset_path: the path where all the images stored
+        class_name: which class you want to count
+
+    Returns:
+        num_of_imgs: how many images in a class
+    """
+    class_path = dataset_path + r'/JPEGImages/' + class_name
+    all_img_name = os.listdir(class_path)
+
+    num_of_imgs = len(all_img_name)
+
+    return num_of_imgs
 
 def resize_img(img):
     """Resize an image into shape (224, 224, 3).
@@ -83,3 +126,54 @@ def resize_img(img):
     resized_img = transform.resize(croped_img, (224, 224, 3))
 
     return resized_img
+
+# def cls_to_int(cls_in_strings):
+#     """Convert list of classes into list of ints.
+    
+#     Args:
+#         cls_in_strings: a list of string represents class name
+
+#     Returns:
+#         cls_in_ints: list of int
+#     """
+#     convert_rule = 
+#     {'antelope':1, 'grizzly+bear':2 ,'killer+whale':3 ,'beaver':4, 
+#     'dalmatian':5, 'persian+cat':6, 'horse':7, 'german+shepherd':8, 
+#     'blue+whale':9, 'siamese+cat':10, 'skunk':11, 'mole':12, 
+#     'tiger':13, 'hippopotamus':14, 'leopard':15, 'moose':16, 
+#     'spider+monkey':17, 'humpback+whale':18, 'elephant':19, 'gorilla':20, 
+#     'ox':21, 'fox':22, 'sheep':23, 'seal':24, 
+#     'chimpanzee':25, 'hamster':26, 'squirrel':27, 'rhinoceros':28, 
+#     'rabbit':29, 'bat':30, 'giraffe':31, 'wolf':32, 'chihuahua':33, 
+#     'rat':34, 'weasel':35, 'otter':36, 'buffalo':37, 
+#     'zebra':38, 'giant+panda':39, 'deer':40, 'bobcat':41, 
+#     'pig':42, 'lion':43, 'mouse':44, 'polar+bear':45, 
+#     'collie':46, 'walrus':47, 'raccoon':48, 'cow':49, 
+#     'dolphin':50}
+
+#     cls_in_ints = []
+#     for cls_string in cls_in_strings:
+#         cls_in_ints.append(convert_rule[cls_string])
+#     cls_in_ints = np.array(cls_in_ints)
+
+#     return cls_in_ints
+
+def extend_array(array_to_extend):
+    """
+    """
+    dataset_path = r'/data0/xingyun/AWA'
+
+    cls_count = 1
+    for cls_name in array_to_extend:
+        img_num_of_cls = img_count(dataset_path, cls_name)
+        single_cls_extended = np.repeat(cls_name, img_num_of_cls)
+
+        if cls_count == 1:
+            extended_array = single_cls_extended
+        else:
+            extended_array = np.concatenate((extended_array, single_cls_extended))
+        
+        cls_count += 1
+
+    return extended_array
+

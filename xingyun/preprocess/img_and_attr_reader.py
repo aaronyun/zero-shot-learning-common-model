@@ -8,7 +8,8 @@ from matplotlib import image
 import tensorflow as tf
 from skimage import io as skio
 
-from utils import resize_img, get_class_name
+from preprocess.utils import resize_img, writer
+from preprocess.utils import get_class_name, img_count
 
 #################################图片读取#######################################
 
@@ -92,23 +93,6 @@ def read_split_img(dataset_path, split_name):
 
 ############################属性向量读取和处理###################################
 
-def img_count(all_img_path, class_name):
-    """Get the number of images in a class.
-
-    Args:
-        all_img_path: the path where all the images stored
-        class_name: which class you want to count
-
-    Returns:
-        num_of_imgs: how many images in a class
-    """
-    class_path = all_img_path + '/' + class_name
-    all_img_name = os.listdir(class_path)
-
-    num_of_imgs = len(all_img_name)
-
-    return num_of_imgs
-
 def expand_attr(attr, class_name, all_img_path):
     """
     """
@@ -153,12 +137,14 @@ def read_and_expand_split_attr(dataset_path, split_name):
     Returns:
         split_attrs: 
     """
-    all_img_path = dataset_path + '/' + 'JPEGImages'
+    all_img_path = dataset_path + r'/JPEGImages'
 
     all_attrs = read_all_attrs(dataset_path)
 
     all_class_name = get_class_name(dataset_path, 'all')
+    # print(all_class_name)
     split_class_name = get_class_name(dataset_path, split_name)
+    # print(split_class_name)
 
     # 下面功能的实现的前提是：classes.txt中的类别和predicate-matrix-binary.txt中的属性向量是一一对应的
     attr_count = 1
@@ -176,4 +162,4 @@ def read_and_expand_split_attr(dataset_path, split_name):
 
         attr_count += 1
 
-    return split_attrs
+    writer(split_name, 'attributes', split_attrs)
