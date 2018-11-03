@@ -16,8 +16,8 @@ dataset_path = r'/data0/xingyun/AWA'
 
 # 属性读取和扩充函数测试
 # read_and_expand_split_attr(dataset_path, 'valid')
-# train_attr = reader('valid', 'attributes')
-# print(train_attr.shape)
+test_attr = reader('test', 'attributes')
+print(test_attr.shape)
 
 # initializer = tf.global_variables_initializer()
 # with tf.Session() as sess:
@@ -35,8 +35,8 @@ dataset_path = r'/data0/xingyun/AWA'
     # svm_85 = train_85_svm(features, attr)
 
 
-path = os.getcwd()
-print(path)
+# path = os.getcwd()
+# print(path)
 
 
 

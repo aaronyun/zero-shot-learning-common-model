@@ -6,11 +6,12 @@ import os
 import numpy as np
 import tensorflow as tf
 from sklearn import svm, naive_bayes
+import sklearn.metrics as metrics
 
-from preprocess.utils import get_class_name
+from preprocess.utils import get_class_name, reader
 
 
-################################# 训练分类器 ###################################
+#################################### train #####################################
 
 def train_single_svm_clf(train_data, train_label):
     """
@@ -59,8 +60,6 @@ def train_bayes(test_data, test_label):
 
     return bayes_clf
 
-################################ 数据训练与预测 #################################
-
 def train_model(data):
     """
     """
@@ -75,29 +74,63 @@ def train_model(data):
 
     return model
 
-def predict(test_data, test_label, model):
+########################### predicting and evaluating ##########################
+
+def attr_predict(test_features, svm_clfs):
+    """
+    """
+    attr = []
+    # 先用训练好的svm得到图片对应的属性向量
+    for attr_index in range(0, 85):
+        svm_for_current_attr = svm_clfs[attr_index]
+        # 用SVM预测出一批图片是否有当前属性
+        attr_predict_result = svm_for_current_attr.predict(test_features)
+
+        attr.append(attr_predict_result)
+    
+    attr = np.array(attr, dtype=int)
+    attr = attr.T
+
+    return attr
+
+def cls_predict(test_attr, bayes_clf):
+    """
+    """
+    # 再用bayes和得到的属性向量预测类别
+    predict_result = bayes_clf.predict(test_attr)
+
+    return predict_result
+
+def predict(test_data, model):
     """
     """
     svm_clfs = model['svm_clfs']
     bayes_clf = model['bayes_clf']
 
-    # 先用训练好的svm得到图片对应的属性向量
-    attr_type_count = 1
-    for attr_index in range(0, 85):
-        svm_for_current_attr = svm_clfs[attr_index]
-        # 用SVM预测出一批图片是否有当前属性，得到的是 ()
-        attr_predict_result = svm_for_current_attr.predict(test_data)
-        print(attr_predict_result)
-        print(attr_predict_result.shape)
+    attr_result = attr_predict(test_data, svm_clfs)
+    cls_result = cls_predict(attr_result, bayes_clf)
 
-        if attr_type_count == 1:
-            attr = attr_predict_result
-        else:
-            attr = np.hstack((attr, attr_predict_result))
+    return attr_result, cls_result
 
-        attr_type_count += 1
+def evaluate(test_attr, test_attr_predict, test_cls, test_cls_predic):
+    """
+    """
+    # 计算每个支持向量机的AUC，以及平均值
+    overall_auc_score = 0
+    num_of_svm = test_attr.shape[1]
+    print("\n--------------------")
+    for attr_index in range(num_of_svm):
+        x = test_attr[:][attr_index]
+        x_predict = test_attr_predict[:][attr_index]
+        auc = metrics.roc_auc_score(x, x_predict)
+        overall_auc_score += auc
+        print("AUC score for " + str(attr_index+1) + "th SVM: " + str(auc))
+    print("--------------------\n")
+    print("\n====================")
+    print("Average AUC score on test data: " + str(overall_auc_score/num_of_svm))
+    print("====================\n")
 
-    # 再用bayes和得到的属性向量预测类别
-    predict_result = bayes_clf.predict(attr)
-
-    return predict_result
+    accuracy = metrics.accuracy_score(test_cls, test_cls_predic)
+    print("Accuracy: " + str(accuracy * 100) + "%\n\n")
+    
+    return
