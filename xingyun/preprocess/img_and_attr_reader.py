@@ -41,8 +41,7 @@ def read_class_img(all_img_path, class_name):
         cls_img_array: a class of image in numpy array, of shape (num of images, height, width, channels)
     """
     print("--------------------")
-    print("开始读取" + str(class_name) + "类的图片")
-    print("--------------------")
+    print("%s class reading begin" % class_name)
 
     class_path = all_img_path + '/' + class_name
     all_img_name = os.listdir(class_path)
@@ -60,9 +59,8 @@ def read_class_img(all_img_path, class_name):
     a_class_img = np.asarray(class_img, dtype=np.float32)
     # print("形状：" + str(a_class_img.shape))
 
+    print("%s class reading complete" % class_name)
     print("--------------------")
-    print(str(class_name) + "类的图片读取完成")
-    print("--------------------\n")
 
     return a_class_img
 
@@ -77,7 +75,7 @@ def read_split_img(dataset_path, split_name):
     Returns:
         split_img: python dictionary containing a split of images
     """
-    print("开始读取" + str(split_name) + "数据划分的图片\n")
+    print("\n//////////Reading %s split image//////////" % split_name)
 
     a_split_img = {}
     all_class_name = get_class_name(dataset_path, split_name)
@@ -87,7 +85,7 @@ def read_split_img(dataset_path, split_name):
         a_class_img = read_class_img(dataset_path_in_detail, class_name)
         a_split_img[class_name] = a_class_img
 
-    print(str(split_name) + "数据划分的图片读取完成")
+    print("//////////Reading completed//////////\n")
 
     return a_split_img
 

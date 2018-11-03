@@ -16,37 +16,36 @@ def feature_extractor(dataset_path, split_name):
         dataset_path: the dataset's path on your machine
         split_name: which split of images need to be extracted
     """
-    print("开始提取" + str(split_name) + "数据划分的特征")
-    print("======================\n")
 
-    a_split_img = read_split_img(dataset_path, split_name)
+    split_img = read_split_img(dataset_path, split_name)
+    # python字典中的key的存储是散序的，用key()取是顺序会变化
+    all_class_name = split_img.keys()
 
-    initializer = tf.global_variables_initializer()
+    print("\n\n========================================")
+    print("Features of %s split is under extractoring..." % split_name)
+    print("========================================\n")
+
     with tf.Session() as sess:
-        sess.run(initializer)
-
         class_index = 1
-        all_class_name = a_split_img.keys()
         for class_name in all_class_name:
-            print("正在提取" + str(class_name) + "类的特征")
+            print("extracting features for %s class" % class_name)
 
-            class_img = a_split_img[class_name]
+            class_img = split_img[class_name]
             vgg = Vgg19()
             vgg.build(class_img)
-            fc_result = (vgg.fc8).eval()
-            # print(str(class_name) + "类特征的形状: " + str(rc_result.shape))
+            fc_result = (vgg.fc7).eval()
 
             if class_index == 1:
                 class_img_features = fc_result
             else:
                 class_img_features = np.vstack((class_img_features, fc_result))
 
-            # print("class_img_features的形状: " + str(class_img_features.shape))
             class_index += 1
 
-            print(str(class_name) + "类的特征提取完成\n")
+            print("features of %s class have been extractored" % class_name)
     
     writer(split_name, 'features', class_img_features)
 
-    print("\n" + str(split_name) + "数据划分的特征提取完成")
-    print("======================")
+    print("\n========================================")
+    print("Features extractoring of %s split completed" % split_name)
+    print("========================================\n\n")
