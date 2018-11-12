@@ -1,8 +1,10 @@
 # -*- coding: UTF-8 -*-
-import numpy as np
 import io
 import os
+
+import numpy as np
 from skimage import transform
+from sklearn.metrics.pairwise import chi2_kernel
 
 ########################### functionality utilities ############################
 
@@ -23,6 +25,8 @@ def get_class_name(dataset_path, split_name):
     elif split_name == 'valid':
         split_file_path = dataset_path + '/' + split_name + 'classes.txt'
     elif split_name == 'test':
+        split_file_path = dataset_path + '/' + split_name + 'classes.txt'
+    elif split_name == 'trainvalid':
         split_file_path = dataset_path + '/' + split_name + 'classes.txt'
     elif split_name == 'all':
         split_file_path = dataset_path + '/' + 'classes.txt'
@@ -123,7 +127,7 @@ def resize_img(img):
     croped_img = img[yy: yy + short_edge, xx: xx + short_edge]
 
     # 将图片缩小为(224, 224)的大小
-    resized_img = transform.resize(croped_img, (224, 224, 3))
+    resized_img = transform.resize(croped_img, (224, 224, 3), mode='constant')
 
     return resized_img
 
@@ -177,3 +181,9 @@ def extend_array(array_to_extend):
 
     return extended_array
 
+def features_with_chi2_kernel(X, gamma):
+    """
+    """
+    kernel = chi2_kernel(X, gamma=gamma)
+
+    return kernel
