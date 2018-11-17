@@ -4,21 +4,19 @@ import os
 
 import numpy as np
 from skimage import transform
-from sklearn.metrics.pairwise import chi2_kernel
 
 ########################### functionality utilities ############################
 
-def get_class_name(dataset_path, split_name):
-    """Fetch all the name of a split.
+def class_name_of_split(dataset_path, split_name):
+    """Fetch all the class name in a split.
 
     Args:
         dataset_path: the path where the split file stored
         split_name: which split you want to know
 
     Returns:
-        all_class_name: python list stored all the class name of a split
+        class_name_of_split: python list stored all the class name of a split
     """
-    all_class_name = []
 
     if split_name == 'train':
         split_file_path = dataset_path + '/' + split_name + 'classes.txt'
@@ -34,18 +32,19 @@ def get_class_name(dataset_path, split_name):
         print("\nWarning: No split called " + str(split_name) + "\n")
         return
 
+    class_name_of_split = []
     split_file = io.open(split_file_path, 'r')
 
-    class_name = ' '
-    while class_name != '':
-        class_name = split_file.readline().rstrip('\n')
-        
-        if len(class_name) != 0:
-            all_class_name.append(class_name)
+    cls_name = ' '
+    while len(cls_name) != 0:
+        cls_name = split_file.readline().rstrip('\n')
+        # 确保最后一次循环时读到的空字符串不被写入
+        if cls_name != '':
+            class_name_of_split.append(cls_name)
 
     split_file.close()
 
-    return all_class_name
+    return class_name_of_split
 
 ############################ file process utilities ############################
 
@@ -84,23 +83,23 @@ def reader(split_name, data_type):
     elif data_type == 'attributes':
         file_name = split_name + '_attributes.npy'
     
-    data = np.load(file_name)
+    data = np.load('../data/' + file_name)
 
     return data
 
 ############################ data process utilities ############################
 
-def img_count(dataset_path, class_name):
+def img_count(dataset_path, cls_name):
     """Get the number of images in a class.
 
     Args:
         dataset_path: the path where all the images stored
-        class_name: which class you want to count
+        cls_name: which class you want to count
 
     Returns:
         num_of_imgs: how many images in a class
     """
-    class_path = dataset_path + r'/JPEGImages/' + class_name
+    class_path = dataset_path + r'/JPEGImages/' + cls_name
     all_img_name = os.listdir(class_path)
 
     num_of_imgs = len(all_img_name)
@@ -181,9 +180,30 @@ def extend_array(array_to_extend):
 
     return extended_array
 
-def features_with_chi2_kernel(X, gamma):
-    """
-    """
-    kernel = chi2_kernel(X, gamma=gamma)
+# def features_with_chi2_kernel(X, gamma):
+#     """
+#     """
+#     kernel = chi2_kernel(X, gamma=gamma)
 
-    return kernel
+#     return kernel
+
+def vector_sim_compute(predict, attr):
+    """Compute the similarity between predict attributes probability and test class.
+
+    Args:
+        predict: 
+        attr: 
+    """
+    assert(predict.shape == attr.shape)
+
+    similarity = 1
+    length = attr.shape[0]
+    for index in range(length):
+        if attr[index] == 0:
+            temp_entry = 1 - predict[index]
+        else:
+            temp_entry = predict[index]
+        
+        similarity *= temp_entry
+
+    return similarity

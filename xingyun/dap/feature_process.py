@@ -3,9 +3,9 @@
 import tensorflow as tf
 import numpy as np
 
-from preprocess.utils import get_class_name, writer
-from preprocess.img_and_attr_reader import read_cls_img
-from preprocess.vgg19 import Vgg19
+from dap.utils import class_name_of_split, writer
+from dap.img_process import read_cls_img
+from dap.vgg19 import Vgg19
 
 def get_batch(batch_count, batch_size, cls_img):
     """
@@ -57,7 +57,7 @@ def extract(dataset_path, split_name):
     cls_count = 1
     batch_size = 50
 
-    all_cls_name = get_class_name(dataset_path, split_name)
+    all_cls_name = class_name_of_split(dataset_path, split_name)
     for cls_name in all_cls_name:
         print("\n++++++++++++++++++++++++++++++++++++++++")
         print("extracting features for %s class" % cls_name)

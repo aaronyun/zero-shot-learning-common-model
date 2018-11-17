@@ -1,0 +1,1832 @@
+﻿
+====================
+
+SVM count: 1
+
+Current svm training begining...
+
+
+
+====================
+
+SVM count: 1
+
+Current svm training begining...
+
+
+Training completed!
+
+====================
+
+
+====================
+
+SVM count: 2
+
+Current svm training begining...
+
+
+
+====================
+
+SVM count: 1
+
+Current svm training begining...
+
+
+Training completed!
+
+====================
+
+
+
+====================
+
+SVM count: 2
+
+Current svm training begining...
+
+
+Training completed!
+
+====================
+
+
+
+====================
+
+SVM count: 3
+
+Current svm training begining...
+
+
+Training completed!
+
+====================
+
+
+
+====================
+
+SVM count: 4
+
+Current svm training begining...
+
+
+Training completed!
+
+====================
+
+
+
+====================
+
+SVM count: 5
+
+Current svm training begining...
+
+
+Training completed!
+
+====================
+
+
+
+====================
+
+SVM count: 6
+
+Current svm training begining...
+
+
+Training completed!
+
+====================
+
+
+
+====================
+
+SVM count: 7
+
+Current svm training begining...
+
+
+Training completed!
+
+====================
+
+
+
+====================
+
+SVM count: 8
+
+Current svm training begining...
+
+
+Training completed!
+
+====================
+
+
+
+====================
+
+SVM count: 9
+
+Current svm training begining...
+
+
+Training completed!
+
+====================
+
+
+
+====================
+
+SVM count: 10
+
+Current svm training begining...
+
+
+Training completed!
+
+====================
+
+
+
+====================
+
+SVM count: 11
+
+Current svm training begining...
+
+
+Training completed!
+
+====================
+
+
+
+====================
+
+SVM count: 12
+
+Current svm training begining...
+
+
+Training completed!
+
+====================
+
+
+
+====================
+
+SVM count: 13
+
+Current svm training begining...
+
+
+Training completed!
+
+====================
+
+
+
+====================
+
+SVM count: 14
+
+Current svm training begining...
+
+
+Training completed!
+
+====================
+
+
+
+====================
+
+SVM count: 15
+
+Current svm training begining...
+
+
+Training completed!
+
+====================
+
+
+
+====================
+
+SVM count: 16
+
+Current svm training begining...
+
+
+Training completed!
+
+====================
+
+
+
+====================
+
+SVM count: 17
+
+Current svm training begining...
+
+
+Training completed!
+
+====================
+
+
+
+====================
+
+SVM count: 18
+
+Current svm training begining...
+
+
+Training completed!
+
+====================
+
+
+
+====================
+
+SVM count: 19
+
+Current svm training begining...
+
+
+Training completed!
+
+====================
+
+
+
+====================
+
+SVM count: 20
+
+Current svm training begining...
+
+
+Training completed!
+
+====================
+
+
+
+====================
+
+SVM count: 21
+
+Current svm training begining...
+
+
+Training completed!
+
+====================
+
+
+
+====================
+
+SVM count: 22
+
+Current svm training begining...
+
+
+Training completed!
+
+====================
+
+
+
+====================
+
+SVM count: 23
+
+Current svm training begining...
+
+
+Training completed!
+
+====================
+
+
+
+====================
+
+SVM count: 24
+
+Current svm training begining...
+
+
+Training completed!
+
+====================
+
+
+
+====================
+
+SVM count: 25
+
+Current svm training begining...
+
+
+Training completed!
+
+====================
+
+
+
+====================
+
+SVM count: 26
+
+Current svm training begining...
+
+
+Training completed!
+
+====================
+
+
+
+====================
+
+SVM count: 27
+
+Current svm training begining...
+
+
+Training completed!
+
+====================
+
+
+
+====================
+
+SVM count: 28
+
+Current svm training begining...
+
+
+Training completed!
+
+====================
+
+
+
+====================
+
+SVM count: 29
+
+Current svm training begining...
+
+
+Training completed!
+
+====================
+
+
+
+====================
+
+SVM count: 30
+
+Current svm training begining...
+
+
+Training completed!
+
+====================
+
+
+
+====================
+
+SVM count: 31
+
+Current svm training begining...
+
+
+Training completed!
+
+====================
+
+
+
+====================
+
+SVM count: 32
+
+Current svm training begining...
+
+
+Training completed!
+
+====================
+
+
+
+====================
+
+SVM count: 33
+
+Current svm training begining...
+
+
+Training completed!
+
+====================
+
+
+
+====================
+
+SVM count: 34
+
+Current svm training begining...
+
+
+Training completed!
+
+====================
+
+
+
+====================
+
+SVM count: 35
+
+Current svm training begining...
+
+
+Training completed!
+
+====================
+
+
+
+====================
+
+SVM count: 36
+
+Current svm training begining...
+
+
+Training completed!
+====================
+
+
+
+====================
+
+SVM count: 37
+
+Current svm training begining...
+
+
+Training completed!
+
+====================
+
+
+
+====================
+
+SVM count: 38
+
+Current svm training begining...
+
+
+Training completed!
+
+====================
+
+
+
+====================
+
+SVM count: 39
+
+Current svm training begining...
+
+
+Training completed!
+
+====================
+
+
+
+====================
+
+SVM count: 40
+
+Current svm training begining...
+
+
+Training completed!
+
+====================
+
+
+
+====================
+
+SVM count: 41
+
+Current svm training begining...
+
+
+Training completed!
+
+====================
+
+
+
+====================
+
+SVM count: 42
+
+Current svm training begining...
+
+
+Training completed!
+
+====================
+
+
+
+====================
+
+SVM count: 43
+
+Current svm training begining...
+
+
+Training completed!
+
+====================
+
+
+
+====================
+SVM count: 44
+
+Current svm training begining...
+
+
+Training completed!
+
+====================
+
+
+
+====================
+
+SVM count: 45
+
+Current svm training begining...
+
+
+Training completed!
+
+====================
+
+
+
+====================
+
+SVM count: 46
+
+Current svm training begining...
+
+
+Training completed!
+
+====================
+
+
+
+====================
+
+SVM count: 47
+
+Current svm training begining...
+
+
+Training completed!
+
+====================
+
+
+
+====================
+
+SVM count: 48
+
+Current svm training begining...
+
+
+Training completed!
+
+====================
+
+
+
+====================
+
+SVM count: 49
+
+Current svm training begining...
+
+
+Training completed!
+
+====================
+
+
+
+====================
+
+SVM count: 50
+
+Current svm training begining...
+
+
+Training completed!
+
+====================
+
+
+
+====================
+
+SVM count: 51
+
+Current svm training begining...
+
+
+Training completed!
+
+====================
+====================
+
+SVM count: 52
+
+Current svm training begining...
+
+
+Training completed!
+
+====================
+
+
+
+====================
+
+SVM count: 53
+
+Current svm training begining...
+
+
+Training completed!
+
+====================
+
+
+
+====================
+
+SVM count: 54
+
+Current svm training begining...
+
+
+Training completed!
+
+====================
+
+
+
+====================
+
+SVM count: 55
+
+Current svm training begining...
+
+
+Training completed!
+
+====================
+
+
+
+====================
+
+SVM count: 56
+
+Current svm training begining...
+
+
+Training completed!
+
+====================
+
+
+
+====================
+
+SVM count: 57
+
+Current svm training begining...
+
+
+Training completed!
+
+====================
+
+
+
+====================
+
+SVM count: 58
+
+Current svm training begining...
+
+
+Training completed!
+
+====================
+
+
+
+====================
+
+SVM count: 59
+
+Current svm training begining...
+
+
+Training completed!
+
+====================
+
+
+
+====================
+
+SVM count: 60
+
+Current svm training begining...
+
+
+Training completed!
+
+====================
+
+
+
+====================
+
+SVM count: 61
+
+Current svm training begining...
+
+
+Training completed!
+
+====================
+
+
+
+====================
+
+SVM count: 62
+
+Current svm training begining...
+
+
+Training completed!
+
+====================
+
+
+
+====================
+
+SVM count: 63
+
+Current svm training begining...
+
+
+Training completed!
+
+====================
+
+
+
+====================
+
+SVM count: 64
+
+Current svm training begining...
+
+
+Training completed!
+
+====================
+
+
+
+====================
+
+SVM count: 65
+
+Current svm training begining...
+
+
+Training completed!
+
+====================
+
+
+
+====================
+
+SVM count: 66
+
+Current svm training begining...
+
+
+Training completed!
+
+====================
+
+
+
+====================
+
+SVM count: 67
+
+Current svm training begining...
+
+
+Training completed!
+
+====================
+
+
+
+====================
+
+SVM count: 68
+
+Current svm training begining...
+
+
+Training completed!
+
+====================
+
+
+
+====================
+
+SVM count: 69
+
+Current svm training begining...
+
+
+Training completed!
+
+====================
+
+
+
+====================
+
+SVM count: 70
+
+Current svm training begining...
+
+
+Training completed!
+
+====================
+
+
+
+====================
+
+SVM count: 71
+
+Current svm training begining...
+
+
+Training completed!
+
+====================
+
+
+
+====================
+
+SVM count: 72
+
+Current svm training begining...
+
+
+Training completed!
+
+====================
+
+
+
+====================
+
+SVM count: 73
+
+Current svm training begining...
+
+
+Training completed!
+
+====================
+
+
+
+====================
+
+SVM count: 74
+
+Current svm training begining...
+
+
+Training completed!
+
+====================
+
+
+
+====================
+
+SVM count: 75
+
+Current svm training begining...
+
+
+Training completed!
+
+====================
+
+
+
+====================
+
+SVM count: 76
+
+Current svm training begining...
+
+
+Training completed!
+
+====================
+
+
+
+===================
+=
+SVM count: 77
+
+Current svm training begining...
+
+
+Training completed!
+
+====================
+
+
+
+====================
+
+SVM count: 78
+
+Current svm training begining...
+
+
+Training completed!
+
+====================
+
+
+
+====================
+
+SVM count: 79
+
+Current svm training begining...
+
+
+Training completed!
+
+====================
+
+
+
+====================
+
+SVM count: 80
+
+Current svm training begining...
+
+
+Training completed!
+
+====================
+
+
+
+====================
+
+SVM count: 81
+
+Current svm training begining...
+
+
+Training completed!
+
+====================
+
+
+
+====================
+
+SVM count: 82
+
+Current svm training begining...
+
+
+Training completed!
+
+====================
+
+
+
+====================
+
+SVM count: 83
+
+Current svm training begining...
+
+
+Training completed!
+
+====================
+
+
+
+====================
+
+SVM count: 84
+
+Current svm training begining...
+
+
+Training completed!
+
+====================
+
+
+
+====================
+
+SVM count: 85
+
+Current svm training begining...
+
+
+Training completed!
+
+====================
+
+
+训练耗时：6412.341220
+
+====================
+
+Prediction for 1 attribute
+Current attribute prediction complete
+
+====================
+====================
+
+Prediction for 2 attribute
+Current attribute prediction complete
+
+====================
+====================
+
+Prediction for 3 attribute
+Current attribute prediction complete
+
+====================
+====================
+
+Prediction for 4 attribute
+Current attribute prediction complete
+
+====================
+====================
+
+Prediction for 5 attribute
+Current attribute prediction complete
+
+====================
+====================
+
+Prediction for 6 attribute
+Current attribute prediction complete
+
+====================
+====================
+
+Prediction for 7 attribute
+Current attribute prediction complete
+
+====================
+====================
+
+Prediction for 8 attribute
+Current attribute prediction complete
+
+====================
+====================
+
+Prediction for 9 attribute
+Current attribute prediction complete
+
+====================
+====================
+
+Prediction for 10 attribute
+Current attribute prediction complete
+
+====================
+====================
+
+Prediction for 11 attribute
+Current attribute prediction complete
+
+====================
+====================
+
+Prediction for 12 attribute
+Current attribute prediction complete
+
+====================
+====================
+
+Prediction for 13 attribute
+Current attribute prediction complete
+
+====================
+====================
+Prediction for 14 attribute
+Current attribute prediction complete
+
+====================
+====================
+
+Prediction for 15 attribute
+Current attribute prediction complete
+====================
+====================
+
+Prediction for 16 attribute
+Current attribute prediction complete
+
+====================
+====================
+
+Prediction for 17 attribute
+Current attribute prediction complete
+
+====================
+====================
+
+Prediction for 18 attribute
+Current attribute prediction complete
+
+====================
+====================
+
+Prediction for 19 attribute
+Current attribute prediction complete
+
+====================
+====================
+
+Prediction for 20 attribute
+Current attribute prediction complete
+
+====================
+====================
+
+Prediction for 21 attribute
+Current attribute prediction complete
+
+====================
+====================
+
+Prediction for 22 attribute
+Current attribute prediction complete
+
+====================
+====================
+
+Prediction for 23 attribute
+Current attribute prediction complete
+
+====================
+====================
+
+Prediction for 24 attribute
+Current attribute prediction complete
+
+====================
+====================
+
+Prediction for 25 attribute
+Current attribute prediction complete
+
+====================
+====================
+
+Prediction for 26 attribute
+Current attribute prediction complete
+
+====================
+====================
+Prediction for 27 attribute
+Current attribute prediction complete
+
+====================
+====================
+
+Prediction for 28 attribute
+Current attribute prediction complete
+
+====================
+====================
+
+Prediction for 29 attribute
+Current attribute prediction complete
+
+====================
+====================
+
+Prediction for 30 attribute
+Current attribute prediction complete
+
+====================
+====================
+
+Prediction for 31 attribute
+Current attribute prediction complete
+
+====================
+====================
+
+Prediction for 32 attribute
+Current attribute prediction complete
+
+====================
+====================
+
+Prediction for 33 attribute
+Current attribute prediction complete
+
+====================
+====================
+
+Prediction for 34 attribute
+Current attribute prediction complete
+
+====================
+====================
+
+Prediction for 35 attribute
+Current attribute prediction complete
+
+====================
+====================
+
+Prediction for 36 attribute
+Current attribute prediction complete
+
+====================
+====================
+
+Prediction for 37 attribute
+Current attribute prediction complete
+
+====================
+====================
+
+Prediction for 38 attribute
+Current attribute prediction complete
+
+====================
+====================
+
+Prediction for 39 attribute
+Current attribute prediction complete
+
+====================
+====================
+
+Prediction for 40 attribute
+Current attribute prediction complete
+
+====================
+====================
+
+Prediction for 41 attribute
+Current attribute prediction complete
+
+====================
+====================
+
+Prediction for 42 attribute
+Current attribute prediction complete
+
+====================
+====================
+
+Prediction for 43 attribute
+Current attribute prediction complete
+
+====================
+====================
+
+Prediction for 44 attribute
+Current attribute prediction complete
+
+====================
+====================
+
+Prediction for 45 attribute
+Current attribute prediction complete
+
+====================
+====================
+
+Prediction for 46 attribute
+Current attribute prediction complete
+
+====================
+====================
+
+Prediction for 47 attribute
+Current attribute prediction complete
+
+====================
+====================
+
+Prediction for 48 attribute
+Current attribute prediction complete
+
+====================
+====================
+
+Prediction for 49 attribute
+Current attribute prediction complete
+
+====================
+====================
+
+Prediction for 50 attribute
+Current attribute prediction complete
+
+====================
+====================
+
+Prediction for 51 attribute
+Current attribute prediction complete
+
+====================
+====================
+
+Prediction for 52 attribute
+Current attribute prediction complete
+
+====================
+====================
+
+Prediction for 53 attribute
+Current attribute prediction complete
+
+====================
+====================
+
+Prediction for 54 attribute
+Current attribute prediction complete
+
+====================
+====================
+
+Prediction for 55 attribute
+Current attribute prediction complete
+
+====================
+====================
+
+Prediction for 56 attribute
+Current attribute prediction complete
+
+====================
+====================
+
+Prediction for 57 attribute
+Current attribute prediction complete
+
+====================
+====================
+
+Prediction for 58 attribute
+Current attribute prediction complete
+
+====================
+====================
+
+Prediction for 59 attribute
+Current attribute prediction complete
+
+====================
+====================
+
+Prediction for 60 attribute
+Current attribute prediction complete
+
+====================
+====================
+
+Prediction for 61 attribute
+Current attribute prediction complete
+
+====================
+====================
+
+Prediction for 62 attribute
+Current attribute prediction complete
+
+====================
+====================
+
+Prediction for 63 attribute
+Current attribute prediction complete
+
+====================
+====================
+
+Prediction for 64 attribute
+Current attribute prediction complete
+
+====================
+====================
+
+Prediction for 65 attribute
+Current attribute prediction complete
+
+====================
+====================
+
+Prediction for 66 attribute
+Current attribute prediction complete
+
+====================
+====================
+
+Prediction for 67 attribute
+Current attribute prediction complete
+
+====================
+====================
+
+Prediction for 68 attribute
+Current attribute prediction complete
+
+====================
+====================
+
+Prediction for 69 attribute
+Current attribute prediction complete
+
+====================
+====================
+
+Prediction for 70 attribute
+Current attribute prediction complete
+
+====================
+====================
+
+Prediction for 71 attribute
+Current attribute prediction complete
+
+====================
+====================
+
+Prediction for 72 attribute
+Current attribute prediction complete
+
+====================
+====================
+
+Prediction for 73 attribute
+Current attribute prediction complete
+
+====================
+====================
+
+Prediction for 74 attribute
+Current attribute prediction complete
+
+====================
+====================
+
+Prediction for 75 attribute
+Current attribute prediction complete
+
+====================
+====================
+
+Prediction for 76 attribute
+Current attribute prediction complete
+
+====================
+====================
+
+Prediction for 77 attribute
+Current attribute prediction complete
+
+====================
+====================
+
+Prediction for 78 attribute
+Current attribute prediction complete
+
+====================
+====================
+
+Prediction for 79 attribute
+Current attribute prediction complete
+
+====================
+====================
+
+Prediction for 80 attribute
+Current attribute prediction complete
+
+====================
+====================
+
+Prediction for 81 attribute
+Current attribute prediction complete
+
+====================
+====================
+
+Prediction for 82 attribute
+Current attribute prediction complete
+
+====================
+====================
+
+Prediction for 83 attribute
+Current attribute prediction complete
+
+====================
+====================
+
+Prediction for 84 attribute
+Current attribute prediction complete
+
+====================
+====================
+
+Prediction for 85 attribute
+Current attribute prediction complete
+
+====================
+====================
+
+Class prediction begin
+Class prediction complete
+
+====================
+
+预测耗时：111.744778
+
+
+--------------------
+
+AUC score for 1th SVM: 0.8496640537513998
+
+AUC score for 2th SVM: 0.8471444568868982
+
+AUC score for 3th SVM: 0.8208286674132138
+
+AUC score for 4th SVM: 0.8603023516237402
+
+AUC score for 5th SVM: 0.7707166853303471
+
+AUC score for 6th SVM: 0.8709406494960805
+
+AUC score for 7th SVM: 0.7206047032474803
+
+AUC score for 8th SVM: 0.8603023516237402
+
+AUC score for 9th SVM: 0.8446248600223965
+
+AUC score for 10th SVM: 0.7813549832026875
+
+AUC score for 11th SVM: 0.8603023516237402
+
+AUC score for 12th SVM: 0.8471444568868982
+
+AUC score for 13th SVM: 0.7863941769316909
+
+AUC score for 14th SVM: 0.8208286674132138
+
+AUC score for 15th SVM: 0.8233482642777156
+
+AUC score for 16th SVM: 0.8233482642777156
+
+AUC score for 17th SVM: 0.8339865621500561
+
+AUC score for 18th SVM: 0.8709406494960805
+
+AUC score for 19th SVM: 0.8314669652855543
+
+AUC score for 20th SVM: 0.8709406494960805
+
+AUC score for 21th SVM: 0.7656774916013438
+
+AUC score for 22th SVM: 0.8603023516237402
+
+AUC score for 23th SVM: 0.8152295632698768
+
+AUC score for 24th SVM: 0.8603023516237402
+
+AUC score for 25th SVM: 0.8446248600223965
+
+AUC score for 26th SVM: 0.8365061590145577
+
+AUC score for 27th SVM: 0.868421052631579
+
+AUC score for 28th SVM: 0.8709406494960805
+
+AUC score for 29th SVM: 0.8076707726763719
+
+AUC score for 30th SVM: 0.8365061590145577
+
+AUC score for 31th SVM: 0.8709406494960805
+
+AUC score for 32th SVM: 0.8076707726763719
+
+AUC score for 33th SVM: 0.8339865621500561
+
+AUC score for 34th SVM: 0.8603023516237402
+
+AUC score for 35th SVM: 0.8471444568868982
+
+AUC score for 36th SVM: 0.7863941769316909
+
+AUC score for 37th SVM: 0.8496640537513998
+
+AUC score for 38th SVM: 0.8339865621500561
+
+AUC score for 39th SVM: 0.8471444568868982
+
+AUC score for 40th SVM: 0.8471444568868982
+
+AUC score for 41th SVM: 0.8603023516237402
+
+AUC score for 42th SVM: 0.8471444568868982
+
+AUC score for 43th SVM: 0.8496640537513998
+
+AUC score for 44th SVM: 0.8628219484882419
+
+AUC score for 45th SVM: 0.8076707726763719
+
+AUC score for 46th SVM: 0.7732362821948489
+
+AUC score for 47th SVM: 0.8603023516237402
+
+AUC score for 48th SVM: 0.8603023516237402
+
+AUC score for 49th SVM: 0.80515117581187
+
+AUC score for 50th SVM: 0.8734602463605823
+
+AUC score for 51th SVM: 0.8628219484882419
+
+AUC score for 52th SVM: 0.8603023516237402
+
+AUC score for 53th SVM: 0.8603023516237402
+
+AUC score for 54th SVM: 0.8603023516237402
+
+AUC score for 55th SVM: 0.7919932810750279
+
+AUC score for 56th SVM: 0.8076707726763719
+
+AUC score for 57th SVM: 0.8734602463605823
+
+AUC score for 58th SVM: 0.8603023516237402
+
+AUC score for 59th SVM: 0.7945128779395297
+
+AUC score for 60th SVM: 0.8603023516237402
+
+AUC score for 61th SVM: 0.7863941769316909
+
+AUC score for 62th SVM: 0.8577827547592385
+
+AUC score for 63th SVM: 0.7945128779395297
+
+AUC score for 64th SVM: 0.7337625979843226
+AUC score for 65th SVM: 0.8972564389697648
+
+AUC score for 66th SVM: 0.8603023516237402
+
+AUC score for 67th SVM: 0.8734602463605823
+
+AUC score for 68th SVM: 0.8603023516237402
+
+AUC score for 69th SVM: 0.7550391937290035
+
+AUC score for 70th SVM: 0.8496640537513998
+
+AUC score for 71th SVM: 0.8339865621500561
+
+AUC score for 72th SVM: 0.7813549832026875
+
+AUC score for 73th SVM: 0.8076707726763719
+
+AUC score for 74th SVM: 0.8339865621500561
+
+AUC score for 75th SVM: 0.8365061590145577
+
+AUC score for 76th SVM: 0.7813549832026875
+
+AUC score for 77th SVM: 0.7813549832026875
+
+AUC score for 78th SVM: 0.7838745800671892
+
+AUC score for 79th SVM: 0.8577827547592385
+
+AUC score for 80th SVM: 0.8603023516237402
+
+AUC score for 81th SVM: 0.7707166853303471
+
+AUC score for 82th SVM: 0.8471444568868982
+
+AUC score for 83th SVM: 0.8471444568868982
+
+AUC score for 84th SVM: 0.8603023516237402
+
+AUC score for 85th SVM: 0.8496640537513998
+-
+-------------------
+
+
+
+====================
+
+Average AUC score on test data: 0.8326987681970882
+
+====================
+
+
+Accuracy: 58.97%
+
+

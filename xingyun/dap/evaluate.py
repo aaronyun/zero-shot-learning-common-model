@@ -1,6 +1,6 @@
 # -*- coding: UTF-8 -*-
 
-from sklearn.metrics import roc_auc_score, accuracy_score
+from sklearn import metrics
 
 def evaluate(test_attr_true, test_attr_predict, test_cls_true, test_cls_predic):
     """
@@ -22,5 +22,3 @@ def evaluate(test_attr_true, test_attr_predict, test_cls_true, test_cls_predic):
 
     accuracy = metrics.accuracy_score(test_cls_true, test_cls_predic)
     print("Accuracy: " + str(accuracy * 100) + "%\n\n")
-    
-    return

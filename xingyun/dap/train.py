@@ -9,8 +9,7 @@ import tensorflow as tf
 from sklearn import svm, naive_bayes
 from sklearn.calibration import CalibratedClassifierCV
 
-from preprocess.utils import get_class_name, reader
-from preprocess.utils import features_with_chi2_kernel
+from dap.utils import class_name_of_split, reader
 
 def train_single_svm_clf(train_data, train_attr):
     """Train a svm classifier for an attribute.
@@ -22,11 +21,13 @@ def train_single_svm_clf(train_data, train_attr):
     Returns:
         calibrated_svm_clf: svm classifier for current attribute
     """
-    features = features_with_chi2_kernel(train_data, 3)
+    # 卡方核的计算不能存在负值，需要进行对特征进行处理才能使用
+    # 先采用线性核计算
+    # features = features_with_chi2_kernel(train_data, 3)
 
-    svm_clf = svm.SVC(C=1.0, kernel='precomputed', probability=True)
+    svm_clf = svm.LinearSVC()
     calibrated_svm_clf = CalibratedClassifierCV(svm_clf, method='sigmoid', cv=5)
-    calibrated_svm_clf.fit(features, train_attr)
+    calibrated_svm_clf.fit(train_data, train_attr)
 
     return calibrated_svm_clf
 
@@ -59,28 +60,14 @@ def train_svm_clfs(train_data, train_label):
 
     return svm_clfs
 
-def train_bayes(test_data, test_label):
-    """
-    """
-    print("\n====================")
-    print("Bayes classifier training begining...\n")
-    bayes_clf = naive_bayes.BernoulliNB()
-    bayes_clf.fit(test_data, test_label)
-    print("Training completed!")
-    print("====================\n")
+# def train_model(data):
+#     """
+#     """
+#     with tf.Session() as sess:
+#         print("\n////////// Training process //////////\n\n")
+#         svm_clfs = train_svm_clfs(data['train_data'], data['train_label'])
 
-    return bayes_clf
+#         model = 
+#         print("\n\n////////// Training completed //////////\n")
 
-def train_model(data):
-    """
-    """
-    with tf.Session() as sess:
-        print("\n////////// Training process //////////\n\n")
-        svm_clfs = train_svm_clfs(data['train_data'], data['train_label'])
-
-        bayes_clf = train_bayes(data['test_data'], data['test_label'])
-
-        model = {'svm_clfs':svm_clfs, 'bayes_clf':bayes_clf}
-        print("\n\n////////// Training completed //////////\n")
-
-    return model
+#     return model

@@ -8,8 +8,8 @@ from matplotlib import image
 import tensorflow as tf
 from skimage import io as skio
 
-from preprocess.utils import resize_img, writer
-from preprocess.utils import get_class_name, img_count
+from dap.utils import resize_img, writer
+from dap.utils import class_name_of_split, img_count
 
 def read_single_img(class_path, img_name):
     """Read an image and store in ndarray.
@@ -76,7 +76,7 @@ def read_split_img(dataset_path, split_name):
     print("\n//////////Reading %s split image//////////" % split_name)
 
     a_split_img = {}
-    all_class_name = get_class_name(dataset_path, split_name)
+    all_class_name = class_name_of_split(dataset_path, split_name)
 
     dataset_path_in_detail = dataset_path + r'/JPEGImages'
     for class_name in all_class_name:
